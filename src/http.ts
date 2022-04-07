@@ -3,7 +3,7 @@ const API_KEY = '?apikey=WVLNwt7HUrAoakeKjRzUmzzl2KE0bFftpAxipny0';
 
 enum Endpoint {
     LATEST = 'latest',
-    CONVERT = 'convert' // requires pain plan
+    // CONVERT = 'convert' // requires paid plan
 }
 
 const getUrl = (endpoint: string) => URL + endpoint + API_KEY;
