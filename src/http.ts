@@ -8,14 +8,19 @@ enum Endpoint {
 
 const getUrl = (endpoint: string) => URL + endpoint + API_KEY;
 
-export const getCurrencyList = () => fetch(getUrl(Endpoint.LATEST))
-    .then(response => response.json())
-    .then(json => json.data.keys)
-    .catch(console.log);
+// export const getCurrencyList = () => fetch(getUrl(Endpoint.LATEST))
+//     .then(response => response.json())
+//     .then(json => Object.keys(json.data))
+//     .catch(console.log);
+//
+// export const convertCurrency = (from: string, to: string, amount: number | string = 1) =>
+//     fetch(getUrl(Endpoint.LATEST) + `&base_currency=${from}&currencies=${to}`)
+//         .then(response => response.json())
+//         .then(json => +json.data[to].value * +amount)
+//         .catch(console.log);
 
-export const convertCurrency = (from: string, to: string, amount: number | string = 1) =>
-    fetch(getUrl(Endpoint.LATEST) + `&base_currency=${from}&currencies=${to}`)
+export const getLatestExchangeRates = (currency: string) =>
+    fetch(getUrl(Endpoint.LATEST) + `$base_currency=${currency}`)
         .then(response => response.json())
-        .then(json => +json.data[to].value * +amount)
-        .catch(console.log);
+        .then(json => json.data);
 
