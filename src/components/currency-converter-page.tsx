@@ -25,17 +25,16 @@ const CurrencyConverterPage: FC = () => {
     const changeCurrencyTo: ChangeEventHandler<HTMLSelectElement> = e => setCurrencyTo(e.currentTarget.value);
     const handleAmountInput: KeyboardEventHandler<HTMLInputElement> = e => setAmount(e.currentTarget.value);
 
-
     return <CurrencyConverterPageStyled>
         <Header>Convert</Header>
-        <input type="number" onInput={handleAmountInput} value={amount} min={1}/>
+        <input type="number" onInput={handleAmountInput} value={+amount} min={1}/>
         <select onChange={changeCurrencyFrom}>
             {currencyList.map(curr =>
-                <option value={currencyFrom} key={curr}>{curr}</option>)}
+                <option value={curr} key={curr} selected={curr === currencyFrom}>{curr}</option>)}
         </select>
         <select onChange={changeCurrencyTo}>
             {currencyList.map(curr =>
-                <option value={currencyTo} key={curr}>{curr}</option>)}
+                <option value={curr} key={curr} selected={curr === currencyTo}>{curr}</option>)}
         </select>
         <span>{result}</span>
     </CurrencyConverterPageStyled>
