@@ -3,6 +3,9 @@ import CurrencyConverterPageStyled from "./styled/currency-converter-page.styled
 import Header from "./styled/header";
 import {getLatestExchangeRates} from "../http";
 import {CurrencyData} from "../types";
+import CurrencyConverterContent from "./styled/currency-converter-content";
+import {MdOutlineDoubleArrow} from "react-icons/md";
+import FormInput from "./styled/form-input";
 
 const CurrencyConverterPage: FC = () => {
     const [currencyFrom, setCurrencyFrom] = useState<string>('RUB');
@@ -27,16 +30,19 @@ const CurrencyConverterPage: FC = () => {
 
     return <CurrencyConverterPageStyled>
         <Header>Convert</Header>
-        <input type="number" onInput={handleAmountInput} value={+amount} min={1}/>
-        <select onChange={changeCurrencyFrom}>
-            {currencyList.map(curr =>
-                <option value={curr} key={curr} selected={curr === currencyFrom}>{curr}</option>)}
-        </select>
-        <select onChange={changeCurrencyTo}>
-            {currencyList.map(curr =>
-                <option value={curr} key={curr} selected={curr === currencyTo}>{curr}</option>)}
-        </select>
-        <span>{result}</span>
+        <CurrencyConverterContent>
+            <FormInput type="number" onInput={handleAmountInput} value={+amount} min={1}/>
+            <select onChange={changeCurrencyFrom}>
+                {currencyList.map(curr =>
+                    <option value={curr} key={curr} selected={curr === currencyFrom}>{curr}</option>)}
+            </select>
+            <select onChange={changeCurrencyTo}>
+                {currencyList.map(curr =>
+                    <option value={curr} key={curr} selected={curr === currencyTo}>{curr}</option>)}
+            </select>
+            <MdOutlineDoubleArrow/>
+            <span>{result}</span>
+        </CurrencyConverterContent>
     </CurrencyConverterPageStyled>
 };
 
