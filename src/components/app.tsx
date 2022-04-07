@@ -1,9 +1,10 @@
 import React, {FC} from 'react';
+import CurrencyConverterPage from "./currency-converter-page";
 
 const App: FC = () => {
 
 
-    return <h1>App works!</h1>
+    return <CurrencyConverterPage/>
 };
 
 export default App;
