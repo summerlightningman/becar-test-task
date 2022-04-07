@@ -5,7 +5,7 @@ const CurrencyConverterContent = styled.div`
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  height: 100%;
+  height: calc(100% - 100px);
 `;
 
 export default CurrencyConverterContent
