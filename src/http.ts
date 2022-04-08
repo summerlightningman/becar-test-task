@@ -19,8 +19,12 @@ const getUrl = (endpoint: string) => URL + endpoint + API_KEY;
 //         .then(json => +json.data[to].value * +amount)
 //         .catch(console.log);
 
-export const getLatestExchangeRates = (currency: string) =>
-    fetch(getUrl(Endpoint.LATEST) + `$base_currency=${currency}`)
+export const getLatestExchangeRates = (currency: string, currencies: string[] = []) =>
+    fetch(
+        getUrl(Endpoint.LATEST) +
+        `&base_currency=${currency}` +
+        (currencies.length ? `&currencies=${currencies.join(',')}` : '')
+    )
         .then(response => {
             if (response.status === 429)
                 throw new Error('Лимит запросов исчерпан. Попробуйте позже')

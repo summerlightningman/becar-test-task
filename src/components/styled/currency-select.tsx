@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const CurrencySelection = styled.select`
+const CurrencySelect = styled.select`
   height: 60px;
   font-size: 48px;
   width: 200px;
@@ -14,4 +14,4 @@ const CurrencySelection = styled.select`
   }
 `;
 
-export default CurrencySelection
+export default CurrencySelect

@@ -6,7 +6,7 @@ import {CurrencyData} from "../types";
 import CurrencyConverterContent from "./styled/currency-converter-content";
 import {MdOutlineDoubleArrow} from "react-icons/md";
 import FormInput from "./styled/form-input";
-import CurrencySelection from "./styled/currency-selection";
+import CurrencySelect from "./styled/currency-select";
 import Text from "./styled/text";
 import Footer from "./styled/footer";
 import Link from "./styled/link.styled"
@@ -38,18 +38,18 @@ const CurrencyConverterPage: FC = () => {
         <Header>Convert</Header>
         <CurrencyConverterContent>
             <FormInput type="number" onInput={handleAmountInput} value={+amount} min={1}/>
-            <CurrencySelection onChange={changeCurrencyFrom} value={currencyFrom} style={{borderRadius: '5px 0 0 5px'}}>
+            <CurrencySelect onChange={changeCurrencyFrom} value={currencyFrom} style={{borderRadius: '5px 0 0 5px'}}>
                 <optgroup>
                     {currencyList.map(curr =>
                         <option value={curr} key={curr}>{curr}</option>)}
                 </optgroup>
-            </CurrencySelection>
-            <CurrencySelection onChange={changeCurrencyTo} value={currencyTo} style={{borderRadius: '0 5px 5px 0'}}>
+            </CurrencySelect>
+            <CurrencySelect onChange={changeCurrencyTo} value={currencyTo} style={{borderRadius: '0 5px 5px 0'}}>
                 <optgroup>
                     {currencyList.map(curr =>
                         <option value={curr} key={curr}>{curr}</option>)}
                 </optgroup>
-            </CurrencySelection>
+            </CurrencySelect>
             <MdOutlineDoubleArrow size="60px"/>
             <Text>{result}</Text>
         </CurrencyConverterContent>
