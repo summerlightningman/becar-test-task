@@ -8,6 +8,10 @@ const CurrencySelection = styled.select`
   border: 1px solid lightgray;
   padding: 0 10px;
   background: none;
+  
+  & optgroup {
+    font-size: 16px;
+  }
 `;
 
 export default CurrencySelection
