@@ -9,10 +9,11 @@ import FormInput from "./styled/form-input";
 import CurrencySelection from "./styled/currency-selection";
 import Text from "./styled/text";
 import Footer from "./styled/footer";
+import Link from "./styled/link.styled"
 
 const CurrencyConverterPage: FC = () => {
-    const [currencyFrom, setCurrencyFrom] = useState<string>('RUB');
-    const [currencyTo, setCurrencyTo] = useState<string>('USD');
+    const [currencyFrom, setCurrencyFrom] = useState<string>('USD');
+    const [currencyTo, setCurrencyTo] = useState<string>('RUB');
     const [amount, setAmount] = useState<string>('1');
     const [currencyList, setCurrencyList] = useState<string[]>([]);
     const [currencyData, setCurrencyData] = useState<CurrencyData>({});
@@ -20,12 +21,14 @@ const CurrencyConverterPage: FC = () => {
     useEffect(() => {
         getLatestExchangeRates(currencyFrom)
             .then(data => {
+                if (!data)
+                    return
                 setCurrencyList(Object.keys(data));
                 setCurrencyData(data);
             });
     }, [currencyFrom]);
 
-    const result = currencyData[currencyTo]?.value * +amount;
+    const result = (currencyData[currencyTo]?.value * +amount) || 0;
 
     const changeCurrencyFrom: ChangeEventHandler<HTMLSelectElement> = e => setCurrencyFrom(e.currentTarget.value);
     const changeCurrencyTo: ChangeEventHandler<HTMLSelectElement> = e => setCurrencyTo(e.currentTarget.value);
@@ -35,19 +38,23 @@ const CurrencyConverterPage: FC = () => {
         <Header>Convert</Header>
         <CurrencyConverterContent>
             <FormInput type="number" onInput={handleAmountInput} value={+amount} min={1}/>
-            <CurrencySelection onChange={changeCurrencyFrom}>
-                {currencyList.map(curr =>
-                    <option value={curr} key={curr} selected={curr === currencyFrom}>{curr}</option>)}
+            <CurrencySelection onChange={changeCurrencyFrom} value={currencyFrom} style={{borderRadius: '5px 0 0 5px'}}>
+                <optgroup>
+                    {currencyList.map(curr =>
+                        <option value={curr} key={curr}>{curr}</option>)}
+                </optgroup>
             </CurrencySelection>
-            <CurrencySelection onChange={changeCurrencyTo}>
-                {currencyList.map(curr =>
-                    <option value={curr} key={curr} selected={curr === currencyTo}>{curr}</option>)}
+            <CurrencySelection onChange={changeCurrencyTo} value={currencyTo} style={{borderRadius: '0 5px 5px 0'}}>
+                <optgroup>
+                    {currencyList.map(curr =>
+                        <option value={curr} key={curr}>{curr}</option>)}
+                </optgroup>
             </CurrencySelection>
             <MdOutlineDoubleArrow size="60px"/>
             <Text>{result}</Text>
         </CurrencyConverterContent>
-        <Footer>
-
+        <Footer contentPosition="right">
+            <Link to="/">Go to list</Link>
         </Footer>
     </CurrencyConverterPageStyled>
 };

@@ -4,3 +4,7 @@ export interface CurrencyInfo {
 }
 
 export type CurrencyData = Record<string, CurrencyInfo>;
+
+export interface FooterProps {
+    contentPosition: string;
+}
