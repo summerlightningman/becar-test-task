@@ -54,7 +54,7 @@ const CurrencyConverterPage: FC = () => {
             <Text>{result}</Text>
         </CurrencyConverterContent>
         <Footer contentPosition="right">
-            <Link to="/">Go to list</Link>
+            <Link to="/latest">Go to list</Link>
         </Footer>
     </CurrencyConverterPageStyled>
 };
