@@ -1,10 +1,10 @@
 import {FC} from 'react';
 import {Routes, Route} from "react-router-dom";
 
-import CurrencyConverterPage from "./currency-converter-page";
-import GlobalStyle from "./styled/global-style";
-import AppStyled from "./styled/app.styled";
-import LatestCoursesPage from "./latest-courses-page";
+import CurrencyConverterPage from "../currency-converter-page/currency-converter-page";
+import GlobalStyle from "../styled-common/global-style";
+import AppStyled from "./app.styled";
+import LatestCoursesPage from "../latest-courses-page/latest-courses-page";
 
 const App: FC = () => {
     

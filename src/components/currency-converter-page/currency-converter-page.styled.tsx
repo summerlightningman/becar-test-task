@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import AppPage from "./app-page";
+import AppPage from "../app/app-page";
 
 const CurrencyConverterPageStyled = styled(AppPage)`
   width: 1000px;

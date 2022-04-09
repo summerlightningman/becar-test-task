@@ -1,10 +1,10 @@
 import {FC} from "react";
 
-import {CurrencyListProps} from "../types/currency";
+import {CurrencyListProps} from "../../../types/currency";
 
-import CurrencyListStyled from "./styled/currency-list.styled";
-import CurrencyListItem from "./styled/currency-list-item";
-import Text from "./styled/text";
+import CurrencyListStyled from "./currency-list.styled";
+import CurrencyListItem from "./currency-list-item";
+import Text from "../../styled-common/text";
 
 const CurrencyList: FC<CurrencyListProps> = ({currencyList}) => {
     const getCurrencyListItem = (currency: string, price: number) =>

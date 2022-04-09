@@ -1,12 +1,12 @@
 import {ChangeEventHandler, FC, KeyboardEventHandler, useState} from "react";
 
-import {CurrencySelectionProps} from "../types/currency-selection";
+import {CurrencySelectionProps} from "../../../types/currency-selection";
 
-import CurrencySelectionStyled from "./styled/currency-selection.styled";
-import CurrencySelectionItem from "./styled/currency-selection-item";
-import ButtonsPanel from "./styled/buttons-panel";
-import ControlButton from "./styled/control-button";
-import InputStyled from "./styled/input.styled";
+import CurrencySelectionStyled from "./currency-selection.styled";
+import CurrencySelectionItem from "./currency-selection-item";
+import ButtonsPanel from "../../styled-common/buttons-panel";
+import ControlButton from "../../styled-common/control-button";
+import InputStyled from "../../styled-common/input.styled";
 
 const CurrencySelection: FC<CurrencySelectionProps> = ({currencyCheckList, setCurrencyCheckList}) => {
     const [query, setQuery] = useState('');

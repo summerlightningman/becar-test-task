@@ -1,18 +1,18 @@
 import {ChangeEventHandler, FC, useEffect, useState} from "react";
 
-import LatestCoursesPageStyled from "./styled/latest-courses-page.styled";
-import Header from "./styled/header";
-import Footer from "./styled/footer";
-import Link from "./styled/link.styled";
-import LatestCoursesContent from "./styled/latest-courses-content";
-import CurrencySelect from "./styled/currency-select";
-import Text from "./styled/text";
+import LatestCoursesPageStyled from "./latest-courses-page.styled";
+import Header from "../styled-common/header";
+import Footer from "../styled-common/footer";
+import Link from "../styled-common/link.styled";
+import LatestCoursesContent from "./latest-courses-content";
+import CurrencySelect from "../styled-common/currency-select";
+import Text from "../styled-common/text";
 
-import CurrencyList from "./currency-list";
-import {getLatestExchangeRates} from "../http";
-import CurrencySelection from "./currency-selection";
-import BaseCurrencyContainer from "./styled/base-currency-container";
-import {CurrencyCheckList, CurrencyData} from "../types/currency";
+import CurrencyList from "./currency-list/currency-list";
+import {getLatestExchangeRates} from "../../http";
+import CurrencySelection from "./currency-selection/currency-selection";
+import BaseCurrencyContainer from "./base-currency-container";
+import {CurrencyCheckList, CurrencyData} from "../../types/currency";
 
 const LatestCoursesPage: FC = () => {
     const [currencyCheckList, setCurrencyCheckList] = useState<CurrencyCheckList>({});

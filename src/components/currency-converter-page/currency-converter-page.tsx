@@ -1,17 +1,17 @@
 import {ChangeEventHandler, FC, KeyboardEventHandler, useEffect, useState} from "react";
 import {MdOutlineDoubleArrow} from "react-icons/md";
 
-import {getLatestExchangeRates} from "../http";
+import {getLatestExchangeRates} from "../../http";
 
-import CurrencyConverterPageStyled from "./styled/currency-converter-page.styled";
-import {CurrencyData} from "../types/currency";
-import Header from "./styled/header";
-import CurrencyConverterContent from "./styled/currency-converter-content";
-import FormInput from "./styled/form-input";
-import CurrencySelect from "./styled/currency-select";
-import Text from "./styled/text";
-import Footer from "./styled/footer";
-import Link from "./styled/link.styled"
+import CurrencyConverterPageStyled from "./currency-converter-page.styled";
+import {CurrencyData} from "../../types/currency";
+import Header from "../styled-common/header";
+import CurrencyConverterContent from "./currency-converter-content";
+import FormInput from "../styled-common/form-input";
+import CurrencySelect from "../styled-common/currency-select";
+import Text from "../styled-common/text";
+import Footer from "../styled-common/footer";
+import Link from "../styled-common/link.styled"
 
 const CurrencyConverterPage: FC = () => {
     const [currencyFrom, setCurrencyFrom] = useState<string>('USD');
