@@ -9,7 +9,7 @@ const CurrencySelection: FC<CurrencySelectionProps> = ({currencyCheckList, setCu
             ? setCurrencyCheckList({...currencyCheckList, [name]: true})
             : setCurrencyCheckList({...currencyCheckList, [name]: false});
 
-    const getCurrencySelectionItem = (name: string) => <CurrencySelectionItem>
+    const getCurrencySelectionItem = (name: string) => <CurrencySelectionItem key={name}>
         <label>{name} <input type="checkbox" checked={currencyCheckList[name]} onChange={checkCurrency(name)}/></label>
     </CurrencySelectionItem>;
 
