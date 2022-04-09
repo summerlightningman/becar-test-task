@@ -28,7 +28,7 @@ const CurrencyConverterPage: FC = () => {
             });
     }, [currencyFrom]);
 
-    const result = (currencyData[currencyTo]?.value * +amount) || 0;
+    const result = (currencyData[currencyTo]?.value * +amount).toFixed(4) || 0;
 
     const changeCurrencyFrom: ChangeEventHandler<HTMLSelectElement> = e => setCurrencyFrom(e.currentTarget.value);
     const changeCurrencyTo: ChangeEventHandler<HTMLSelectElement> = e => setCurrencyTo(e.currentTarget.value);

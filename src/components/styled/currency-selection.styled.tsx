@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const CurrencySelectionStyled = styled.ul`
   width: 200px;
-  height: 95%;
+  height: 90%;
   border: 1px solid lightgray;
   border-left: none;
   border-right: none;
