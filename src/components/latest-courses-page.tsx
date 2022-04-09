@@ -10,9 +10,9 @@ import Text from "./styled/text";
 
 import CurrencyList from "./currency-list";
 import {getLatestExchangeRates} from "../http";
-import {CurrencyCheckList, CurrencyData} from "../types";
 import CurrencySelection from "./currency-selection";
 import BaseCurrencyContainer from "./styled/base-currency-container";
+import {CurrencyCheckList, CurrencyData} from "../types/currency";
 
 const LatestCoursesPage: FC = () => {
     const [currencyCheckList, setCurrencyCheckList] = useState<CurrencyCheckList>({});

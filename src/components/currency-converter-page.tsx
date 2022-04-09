@@ -1,10 +1,12 @@
 import {ChangeEventHandler, FC, KeyboardEventHandler, useEffect, useState} from "react";
-import CurrencyConverterPageStyled from "./styled/currency-converter-page.styled";
-import Header from "./styled/header";
-import {getLatestExchangeRates} from "../http";
-import {CurrencyData} from "../types";
-import CurrencyConverterContent from "./styled/currency-converter-content";
 import {MdOutlineDoubleArrow} from "react-icons/md";
+
+import {getLatestExchangeRates} from "../http";
+
+import CurrencyConverterPageStyled from "./styled/currency-converter-page.styled";
+import {CurrencyData} from "../types/currency";
+import Header from "./styled/header";
+import CurrencyConverterContent from "./styled/currency-converter-content";
 import FormInput from "./styled/form-input";
 import CurrencySelect from "./styled/currency-select";
 import Text from "./styled/text";

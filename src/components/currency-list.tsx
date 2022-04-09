@@ -1,5 +1,7 @@
 import {FC} from "react";
-import {CurrencyListProps} from "../types";
+
+import {CurrencyListProps} from "../types/currency";
+
 import CurrencyListStyled from "./styled/currency-list.styled";
 import CurrencyListItem from "./styled/currency-list-item";
 import Text from "./styled/text";

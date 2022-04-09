@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {TextProps} from "../../types";
+import {TextProps} from "../../types/text";
 
 const Text = styled.span<TextProps>`
   font-size: ${props => props.fontSize || '48px'};

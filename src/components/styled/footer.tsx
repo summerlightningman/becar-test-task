@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {FooterProps} from "../../types";
+import {FooterProps} from "../../types/footer";
 
 const footer = styled.footer<FooterProps>`
   height: 50px;

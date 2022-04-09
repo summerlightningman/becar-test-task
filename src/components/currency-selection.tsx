@@ -1,7 +1,9 @@
 import {ChangeEventHandler, FC, KeyboardEventHandler, useState} from "react";
+
+import {CurrencySelectionProps} from "../types/currency-selection";
+
 import CurrencySelectionStyled from "./styled/currency-selection.styled";
 import CurrencySelectionItem from "./styled/currency-selection-item";
-import {CurrencySelectionProps} from "../types";
 import ButtonsPanel from "./styled/buttons-panel";
 import ControlButton from "./styled/control-button";
 import InputStyled from "./styled/input.styled";
