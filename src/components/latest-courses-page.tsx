@@ -17,20 +17,24 @@ const LatestCoursesPage: FC = () => {
     const [baseCurrency, setBaseCurrency] = useState<string>('RUB');
     const [currencyList, setCurrencyList] = useState<CurrencyData>({});
     useEffect(() => {
-        const currencies: string[] = Object.keys(currencyCheckList).filter(key => currencyCheckList[key]);
-        getLatestExchangeRates(baseCurrency, currencies)
+        getLatestExchangeRates(baseCurrency)
             .then(data => {
                 if (!data)
                     return
                 setCurrencyList(data);
-                if (!Object.keys(currencyCheckList))
-                    setCurrencyCheckList(Object.keys(data).reduce((acc, val) => ({...acc, [val]: false}), {}));
+
+                setCurrencyCheckList(
+                    Object.keys(data).reduce((acc, val) => ({...acc, [val]: !!currencyCheckList[val]}), {})
+                );
             })
     }, [baseCurrency]);
 
     const changeBaseCurrency: ChangeEventHandler<HTMLSelectElement> = e =>
         setBaseCurrency(e.currentTarget.value);
 
+    const currList = Object.keys(currencyList)
+        .filter(curr => currencyCheckList[curr])
+        .reduce((acc, val) => ({...acc, [val]: currencyList[val]}), {});
     return <LatestCoursesPageStyled>
         <Header>Actual currency courses</Header>
         <LatestCoursesContent>
@@ -38,13 +42,13 @@ const LatestCoursesPage: FC = () => {
                 <Text>Base currency</Text>
                 <CurrencySelect value={baseCurrency} onChange={changeBaseCurrency}>
                     <optgroup>
-                        {Object.keys(currencyCheckList).map(curr =>
+                        {Object.keys(currencyList).map(curr =>
                             <option value={curr} key={curr}>{curr}</option>)}
                     </optgroup>
                 </CurrencySelect>
             </div>
             <CurrencySelection currencyCheckList={currencyCheckList} setCurrencyCheckList={setCurrencyCheckList}/>
-            <CurrencyList currencyList={currencyList}/>
+            <CurrencyList currencyList={currList}/>
         </LatestCoursesContent>
         <Footer>
             <Link to="/">Go to converter</Link>
