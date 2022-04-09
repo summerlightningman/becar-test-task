@@ -6,6 +6,8 @@ const CurrencyListItem = styled.li`
   justify-content: space-between;
   align-items: center;
   list-style-type: none;
+  border-bottom: 1px solid #0001;
+  padding: 0 15px
 `;
 
 export default CurrencyListItem

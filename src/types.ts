@@ -17,6 +17,10 @@ export interface FooterProps {
     contentPosition?: string;
 }
 
+export interface TextProps {
+    fontSize?: string;
+}
+
 export interface CurrencySelectionProps {
     currencyCheckList: CurrencyCheckList,
     setCurrencyCheckList: React.Dispatch<CurrencyCheckList>
